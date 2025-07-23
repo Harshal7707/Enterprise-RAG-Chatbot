@@ -5,8 +5,13 @@ A smart chatbot that uses **Retrieval-Augmented Generation (RAG)** with **Google
 ---
 
 ## 🎥 Demo
+Input
+<img width="1818" height="649" alt="Screenshot 2025-07-23 202155" src="https://github.com/user-attachments/assets/5514b1ee-b904-4f45-9c92-0eef388871cc" />
 
-📽️ [Watch the demo video](your-video-link-here.mp4)
+
+Output
+<img width="1810" height="623" alt="image" src="https://github.com/user-attachments/assets/2749bc17-dbee-49d4-ad81-eb09f6791f65" />
+
 
 ---
 
