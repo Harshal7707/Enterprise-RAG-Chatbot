@@ -1,4 +1,3 @@
-# Placeholder for collecting and processing user feedback
 
 class FeedbackManager:
     def __init__(self):
@@ -10,4 +9,3 @@ class FeedbackManager:
     def get_feedback(self):
         return self.feedback_log
 
-# Use in UI: feedback_manager.record_feedback(q, a, like/dislike)
