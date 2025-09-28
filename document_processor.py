@@ -1,4 +1,3 @@
-# Handles splitting and loading documents
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
