@@ -1,6 +1,6 @@
 
 from langchain_community.vectorstores import Chroma
-from langchain.embeddings.openai import OpenAIEmbeddings  # Or your preferred embedding class
+from langchain.embeddings.openai import OpenAIEmbeddings  
 
 class EmbeddingIndexer:
     def create_vectorstore(self, texts):
