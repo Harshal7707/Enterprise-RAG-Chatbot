@@ -3,18 +3,18 @@ import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 
-# --- Secure key loading ---
+# For Key Import
 def get_key(name):
     return st.secrets.get(name, "")
 
-# --- Choose LLM: Gemini (if key exists), else HuggingFaceHub ---
+# Gemini llm importing
 def get_llm():
     gemini_key = get_key("GEMINI_API_KEY")
     if gemini_key:
         try:
             from langchain_google_genai import ChatGoogleGenerativeAI
             llm = ChatGoogleGenerativeAI(
-                model="gemini-2.5-flash",  # or "gemini-2.5-pro" or "gemini-2.5-flash-lite-preview-06-17"
+                model="gemini-2.5-flash",  
                 google_api_key=gemini_key,
                 convert_system_message_to_human=True
             )
@@ -37,7 +37,7 @@ def get_llm():
     st.error("No LLM API key found. Please add a Gemini or HuggingFace API key to your .streamlit/secrets.toml.")
     st.stop()
 
-# --- Embeddings: OpenAI (if available), else local HuggingFace ---
+# Also for OpenAI
 def get_embeddings():
     openai_key = get_key("OPENAI_API_KEY")
     if openai_key:
@@ -47,7 +47,7 @@ def get_embeddings():
         except Exception as e:
             st.warning(f"Could not load OpenAI embeddings, falling back to HF: {e}")
 
-    # Fallback to HuggingFace
+    # for Hugging Face
     from langchain_community.embeddings import HuggingFaceEmbeddings
     return HuggingFaceEmbeddings()
 
@@ -109,11 +109,11 @@ if knowledge_base.strip():
 else:
     st.info("Paste your knowledge base and start chatting!")
 
-# --- Show LLM info ---
+
 if "llm_backend" in st.session_state:
     st.caption(f"Model in use: `{st.session_state['llm_backend']}`")
 
-# --- Optional: Gradio side demo ---
+# Gradio interface
 import gradio as gr
 
 def gradio_chat(question):
